@@ -1768,9 +1768,12 @@
 								continue;
 							}
 
-							m[dat[i].parent.toString()].children.push(dat[i].id.toString());
-							// populate parent.children_d
-							p.children_d.push(dat[i].id.toString());
+							if(!!m[dat[i].parent.toString()]){
+								m[dat[i].parent.toString()].children.push(dat[i].id.toString());
+								// populate parent.children_d
+								p.children_d.push(dat[i].id.toString());
+							}
+
 						}
 						// 3) normalize && populate parents and children_d with recursion
 						for(i = 0, j = p.children.length; i < j; i++) {
